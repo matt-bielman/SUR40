@@ -1,0 +1,34 @@
+﻿<s:SurfaceWindow x:Class="DemoApp.MainSurfaceWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:s="http://schemas.microsoft.com/surface/2008"
+    xmlns:b="clr-namespace:Bielman.SUR40.Controls;assembly=ScatterViewItem.Dockable"
+    Title="Custom Control Demo"
+    >
+  <Grid>
+        <s:ScatterView>
+            <!-- Dockable Scatter View Item -->
+            <b:DockableScatterViewItem x:Name="sampleDockableScatterViewItem" OnDockChanged="sampleDockableScatterViewItem_OnDockChanged" Width="150" Height="275" CanScale="False">
+                <b:DockableScatterViewItem.BorderBrush>
+                    <SolidColorBrush Color="#222222"/>
+                </b:DockableScatterViewItem.BorderBrush>
+                <b:DockableScatterViewItem.Background>
+                    <SolidColorBrush Color="#efefef"/>
+                </b:DockableScatterViewItem.Background>
+                <b:DockableScatterViewItem.BorderThickness>5</b:DockableScatterViewItem.BorderThickness>
+                <StackPanel Margin="5">
+                    <TextBlock FontFamily="Segoe UI Light" FontSize="18" Foreground="#222222" Padding="0,0,0,10">Dockable Scatter View Item</TextBlock>
+                    <TextBlock FontFamily="Segoe UI" FontSize="10" Foreground="#222222" Padding="0,0,0,10">Flick this Scatter View Item to the edge of the screen and watch it neatly slide into place. This control is useful for settings or content that are accessed infrequently.</TextBlock>
+                    <TextBlock FontFamily="Segoe UI" FontSize="10" Foreground="#222222">Mix and match with other Scatter View Items as needed. Use visual cues to let users know this one can be docked.</TextBlock>
+                </StackPanel>
+            </b:DockableScatterViewItem>
+            
+            <!-- Default Scatter View Item -->
+            <s:ScatterViewItem Width="150" Height="75" CanScale="False">
+                <Grid Margin="5">
+                <TextBlock FontFamily="Segoe UI Light" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center">Default Scatter View Item</TextBlock>
+                </Grid>
+            </s:ScatterViewItem>
+        </s:ScatterView>
+  </Grid>
+</s:SurfaceWindow>
