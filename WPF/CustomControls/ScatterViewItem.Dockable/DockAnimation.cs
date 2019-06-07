@@ -72,16 +72,21 @@ namespace Bielman.SUR40.Controls
         {
             // Store final orientation and position so we can apply it after animating
             _targetOrientation = _newOrientation;
+
+            // Adjust target to "nearest" angle to prevent excessive rotation
+            if (_dockableScatterViewItem.Orientation - _newOrientation > 180) { _targetOrientation += 360; }
+            if (_dockableScatterViewItem.Orientation - _newOrientation < -180) { _targetOrientation -= 360; }
+
             _targetPosition = _newPosition;
 
             // Align ScatterViewItem to the docked edge
             OrientationAnimation.From = _dockableScatterViewItem.Orientation;
-            OrientationAnimation.To = _newOrientation;
+            OrientationAnimation.To = _targetOrientation;
             OrientationAnimation.Duration = new Duration(TimeSpan.FromMilliseconds(StoryboardDuration));
 
             // Partially tuck the ScatterViewItem under the docked edge
             PositionAnimation.From = _dockableScatterViewItem.Center;
-            PositionAnimation.To = _newPosition;
+            PositionAnimation.To = _targetPosition;
             PositionAnimation.Duration = new Duration(TimeSpan.FromMilliseconds(_storyboardDuration));
 
             _dockStoryboard.Begin();

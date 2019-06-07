@@ -12,7 +12,7 @@ namespace Bielman.SUR40.Controls
 
         public delegate void OnDockChangedEventHandler(object sender, EventArgs args);
         public event OnDockChangedEventHandler OnDockChanged;
-        
+
         public enum DockLocationEnum { None, Left, Right, Top, Bottom };
 
         private bool _isDockable = true;
@@ -45,7 +45,7 @@ namespace Bielman.SUR40.Controls
         }
 
         private BackgroundWorker _worker;
-        
+
         private DockAnimation _dockAnimation;
 
         private float _dockAnimationDuration = 500;

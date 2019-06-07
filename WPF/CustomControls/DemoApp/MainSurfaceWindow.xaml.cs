@@ -35,7 +35,7 @@ namespace DemoApp
             // Add handlers for window availability events
             AddWindowAvailabilityHandlers();
         }
-
+       
         /// <summary>
         /// Occurs when the window is about to close. 
         /// </summary>
